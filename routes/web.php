@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MovementsController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,4 +28,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::resource('/productos', ProductsController::class);
+    Route::resource('/movimientos', MovementsController::class);
 });

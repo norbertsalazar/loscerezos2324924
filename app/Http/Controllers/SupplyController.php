@@ -26,8 +26,8 @@ class SupplyController extends Controller
      */
     public function create()
     {
-        $insumos = new Supply();
-        return view('insumos.crear' , compact('insumos'));
+        $insumo = new Supply();
+        return view('insumos.crear' , compact('insumo'));
     }
 
     /**
@@ -38,17 +38,17 @@ class SupplyController extends Controller
      */
     public function store(Request $request)
     {
-        $insumos = new Supply();
-        $insumos->nombre = $request->nombre;
-        $insumos->fecha = $request->fecha;
-        $insumos->tipo = $request->tipo;
-        $insumos->operacion = $request->operacion;
-        $insumos->cantidad = $request->cantidad;
-        $insumos->almacen = $request->almacen;
-        $insumos->trabajador = $request->trabajador;
-        $insumos->numeroLote = $request->numeroLote;
-        $insumos->numeroFactura = $request->numeroFactura;
-        $insumos->save();
+        $insumo = new Supply();
+        $insumo->nombre = $request->nombre;
+        $insumo->fecha = $request->fecha;
+        $insumo->tipo = $request->tipo;
+        $insumo->operacion = $request->operacion;
+        $insumo->cantidad = $request->cantidad;
+        $insumo->almacen = $request->almacen;
+        $insumo->trabajador = $request->trabajador;
+        $insumo->numeroLote = $request->numeroLote;
+        $insumo->numeroFactura = $request->numeroFactura;
+        $insumo->save();
         session()->flash("flas.banner" , "Insumos creados de manera satisfactoria");
         return Redirect::route('insumos.index');
     }
@@ -59,9 +59,9 @@ class SupplyController extends Controller
      * @param  \App\Models\Supply  $supply
      * @return \Illuminate\Http\Response
      */
-    public function show(Supply $insumos)
+    public function show(Supply $insumo)
     {
-        return view('insumos.ver' , compact('insumos'));
+        return view('insumos.ver' , compact('insumo'));
     }
 
     /**
@@ -70,9 +70,9 @@ class SupplyController extends Controller
      * @param  \App\Models\Supply  $supply
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supply $insumos)
+    public function edit(Supply $insumo)
     {
-        return view('insumos.edit', compact('insumos'));
+        return view('insumos.edit', compact('insumo'));
     }
 
     /**
@@ -82,18 +82,18 @@ class SupplyController extends Controller
      * @param  \App\Models\Supply  $supply
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Supply $insumos)
+    public function update(Request $request, Supply $insumo)
     {
-        $insumos->nombre = $request->nombre;
-        $insumos->fecha = $request->fecha;
-        $insumos->tipo = $request->tipo;
-        $insumos->operacion = $request->operacion;
-        $insumos->cantidad = $request->cantidad;
-        $insumos->almacen = $request->almacen;
-        $insumos->trabajador = $request->trabajador;
-        $insumos->numeroLote = $request->numeroLote;
-        $insumos->numeroFactura = $request->numeroFactura;
-        $insumos->save();
+        $insumo->nombre = $request->nombre;
+        $insumo->fecha = $request->fecha;
+        $insumo->tipo = $request->tipo;
+        $insumo->operacion = $request->operacion;
+        $insumo->cantidad = $request->cantidad;
+        $insumo->almacen = $request->almacen;
+        $insumo->trabajador = $request->trabajador;
+        $insumo->numeroLote = $request->numeroLote;
+        $insumo->numeroFactura = $request->numeroFactura;
+        $insumo->save();
         session()->flash("flash.banner", "Insumo modificado de manera satisfactoria");
         return Redirect::route('insumos.index');
     }
@@ -104,9 +104,9 @@ class SupplyController extends Controller
      * @param  \App\Models\Supply  $supply
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Supply $insumos)
+    public function destroy(Supply $insumo)
     {
-        $insumos->delete();
+        $insumo->delete();
         session()->flash("flash.banner", "Insumo eliminado de manera satisfactoria");
         return Redirect::route('insumos.index');
     }

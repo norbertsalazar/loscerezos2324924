@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\SupplyController;
-use App\Models\Supply;
 use Illuminate\Support\Facades\Route;
 
 /*
